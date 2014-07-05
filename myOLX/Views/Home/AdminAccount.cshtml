@@ -1,0 +1,39 @@
+﻿@model myOLX.Models.Admin
+@Scripts.Render("~/bundles/jqueryval")
+       	<div class="left_content">
+            <div class="title"><span class="title_icon"><img src="~/images/bullet1.gif" alt="" title="" /></span>My account</div>
+        
+        	<div class="feat_prod_box_details">
+              	<div class="contact_form">
+                <div class="form_subtitle">login into your account</div>
+
+
+                @using (Html.BeginForm("validate", "Admin", FormMethod.Post))
+                {
+                     <div class="form_row">
+                    @Html.LabelFor(m => m.adminName,"UserName",new {id="lb1", Name="pwdLabel", @class = "contact"})
+                    @Html.TextBoxFor(m => m.adminName, new {id="t1", Name="adminName", @class = "contact_input"} )
+                    @Html.ValidationMessageFor(x => x.adminName)
+                
+                        
+                    </div>  
+					
+					<div class="form_row">
+                    @Html.LabelFor(m => m.pwd,"Password",new {id="lb2", Name="pwdLabel", @class = "contact"})
+                    @Html.TextBoxFor(m => m.pwd,new {id="t1", Name="pwd", @class = "contact_input",@type="password"} )
+                    @Html.ValidationMessageFor(x => x.pwd)
+                        
+                    </div>
+                    
+                    
+                    <div class="form_row">
+                    <input type="submit" class="register" value="login" />
+                    </div>   
+                    
+                }
+                </div>  
+            
+            </div>	
+            
+        <div class="clear"></div>
+        </div><!--end of left content-->

@@ -1,0 +1,108 @@
+﻿@model myOLX.Models.Ad
+@{
+Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+	<div class="left_content">
+            <div class="title"><span class="title_icon"><img src="~/images/bullet1.gif" alt="" title="" /></span>Post Your Add</div>
+        
+        	<div class="feat_prod_box_details">
+            <p class="details">
+             Post your add here ... it would be posted on the site within a short interval :)
+            </p>
+            
+              	<div class="contact_form">
+                <div class="form_subtitle">Give your Add Details</div>
+                 <form name="register" method="post" action="/Ad/saveAd" enctype="multipart/form-data" >          
+                    <div class="form_row">
+                    <label class="contact"><strong>Title</strong></label>
+                    <input type="text" id ="t1" class="contact_input" name="title"/>
+                    </div>  
+                    
+                      <div class="form_row">
+                    <label class="contact"><strong>Category</strong></label>
+                    <select name="catName" id="c1" class="contact"  data-val="true" data-val-required="This must be a selected">
+                         <!--   <option>Accessory</option>
+                            <option>Mobile</option>
+                            <option>Computer</option>
+                            <option>Car</option>
+                            <option>Bike</option>
+                            <option>Matrimonial</option> -->
+                        </select>
+                    </div>  
+
+                     <script type="text/javascript">
+                         $(document).ready(function () {
+                            // $("#countrySelector").change(function () {
+                            
+                                 //$("#c1 option").remove();
+
+                                 $.getJSON("/Ad/GetCategories", function (data) {
+                                     //$("#c1").append('<option>-Select Category-</option>');
+                                     $.each(data, function (i, item) {
+                                         //alert(i);
+                                         $("#c1").append('<option value=' + item + '>'+item+'</option>');
+                                         //alert('Id = ' + item.Id + " Name = " + item.Name);
+                                     });
+                                 });
+                             //});
+                         });
+                        </script>
+
+
+
+                    <div class="form_row">
+                    <label class="contact"><strong>Descrption</strong></label>
+                    <textarea name="desc" class="contact_textarea" ></textarea>
+                    </div> 
+
+                    <div class="form_row">
+                    <label class="contact"><strong>Price</strong></label>
+                    <input type="text" class="contact_input" name="price" />
+                    </div>
+
+
+                    <div class="form_row">
+                    <label class="contact"><strong>Upload Image</strong></label>
+                    <input type="file" name="image" accept="image/*" class="contact_input" />
+                   </div>
+                        <!--
+                    </div>
+                     <div class="form_row">
+                     <input id="b1" type="button" class="register" value="Upload">
+                    </div> 
+                     -->
+                    
+                    <div class="form_row">
+                    <label class="contact"><strong>Name</strong></label>
+                    <input type="text" class="contact_input" name="name"/>
+                    </div>
+                    
+                    <div class="form_row">
+                    <label class="contact"><strong>Address:</strong></label>
+                    <input type="text" class="contact_input" name="add"/>
+                    </div>                    
+
+                    <div class="form_row">
+                    <label class="contact"><strong>Phone</strong></label>
+                    <input type="text" class="contact_input" name="phone"/>
+                    </div>                    
+
+                     <!--
+                    <div class="form_row">
+                    <label class="contact"><strong>Email</strong></label>
+                    <input type="text" class="contact_input" />
+                    </div>   
+                    -->
+                    
+                    <div class="form_row">
+                    <input type="submit" class="register" value="Post" />
+                    </div>   
+                  </form>     
+                </div>  
+            
+          </div>	    
+        <div class="clear"></div>
+        </div><!--end of left content-->
+        

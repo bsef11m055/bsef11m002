@@ -1,0 +1,26 @@
+﻿@{
+Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model myOLX.Models.Category
+<div class="left_content">
+    <div class="title"><span class="title_icon"><img src="~/images/bullet1.gif" alt="" title="" /></span>Add a Category</div>
+        
+    <div class="feat_prod_box_details"> 
+        <div class="contact_form">
+        <div class="form_subtitle">Insert Category</div>
+            <form name="register" action="/Ad/saveCat" method ="post">          
+            <div class="form_row">
+            <label class="contact"><strong>Category:</strong></label>
+            <input type="text" id ="t1" class="contact_input" name ="catName" />
+            </div>  
+              
+            <div class="form_row">
+            <input type="submit" class="register" value="Insert" />
+            </div>   
+            </form>     
+        </div>  
+            
+    </div>	    
+<div class="clear"></div>
+</div><!--end of left content-->
+        

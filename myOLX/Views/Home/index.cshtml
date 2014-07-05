@@ -1,0 +1,63 @@
+@model myOLX.Models.Category
+     	<div class="left_content">
+        	
+            <div class="title"><span class="title_icon"><img src="~/images/bullet1.gif" alt="" title="" /></span>Categories</div>
+        
+         <div class="new_products">
+             @foreach (String s in ViewBag.categ)
+             {
+                 <div class="new_prod_box">
+                    
+                     <div id="ctp1">
+         
+                        <div class="new_prod_bg" id ="ct1">
+                        @*<a href="details.html"><img src="~/images/thumb1.gif" alt="" title="" class="thumb" border="0" /></a>*@
+                        <img src="~/images/thumb1.jpg" alt="" title="" class="thumb" border="0" />
+                        </div>   
+                      </div> 
+                       <input class="category-btn" type="button" value="@s" />       
+                    </div>
+             }
+          </div>
+          <div class="clear"></div>
+             <div class="feat_prod_box_details">
+             <div id ="h1">
+               <form name="detals"  method="post" action="/Ad/ViewAd">   
+                    <table id="tbl1">
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                             <th>Details</th>
+                        </tr>
+                    </table>
+                </form>
+             </div>
+             </div>
+
+
+             @*<script>
+                 $(document).ready(function () {
+                     $('#h1').hide();
+                     $('.category-btn').click(function (e) {
+                         $('#h1').show();
+                         //var value = $("#catName").val();
+                         var value = e.target.value;
+                         $("#tbl1 tr").remove();
+                         //$.getJSON('/Ad/search?title=' + $('#t1').val() + '& price=' + $('#p1').val(),
+                         $.getJSON('/Ad/getAds?catName=' + value,
+                            function (data) {
+                                $.each(data, function (i, item) {
+                                    $("#tbl1").append('<tr><td><img src="' + item.image + '"></td><td>' + item.title + '</td><td><button name="subject" type="submit" value="' + item.Id + '"id="b">View</button></td></tr>');
+                                    //alert(data);
+                                });
+                            });
+
+                     });
+                 });
+
+                </script>*@
+        	
+           
+        <div class="clear"></div>
+        </div><!--end of left content-->

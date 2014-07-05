@@ -1,0 +1,47 @@
+@model myOLX.Models.User
+
+
+       	<div class="left_content">
+            <div class="title"><span class="title_icon"><img src="~/images/bullet1.gif" alt="" title="" /></span>User Login</div>
+        
+        	<div class="feat_prod_box_details">
+            	<div class="contact_form">
+                <div class="form_subtitle">login into your account</div>
+
+
+                 <form name="register"  method="post" action="/User/validate">          
+                    <div class="form_row">
+                    <label class="contact"><strong>Username:</strong></label>
+                    <input type="text" id="t1" class="contact_input" name ="userName" />
+                     @Html.ValidationMessageFor(x => x.userName)
+                       
+                        
+                    </div>  
+                    
+
+                    <div class="form_row">
+                    <label class="contact"><strong>Password:</strong></label>
+                    <input type="password" class="contact_input" name ="pwd" />
+                    @Html.ValidationMessageFor(x => x.pwd)
+                    </div>                     
+                   
+                    @if (ViewBag.x != null)
+                    {
+                        <div class="form_row">
+                        <label class="contact"><strong>@ViewBag.x</strong></label>
+                        </div> 
+                   }
+                     
+                    
+                    <div class="form_row">
+                    <input type="submit" class="register" value="login" />
+                    </div>   
+                    
+                  </form>     
+                    
+                </div>  
+            
+            </div>	
+            
+        <div class="clear"></div>
+        </div><!--end of left content-->

@@ -1,0 +1,36 @@
+﻿@model myOLX.Models.Category
+       	<div class="left_content">
+        	
+            <div class="title"><span class="title_icon"><img src="~/images/bullet1.gif" alt="" title="" /></span>Categories</div>
+        
+         <div class="new_products">
+             @foreach (String s in ViewBag.categ)
+             {
+                 <div class="new_prod_box">
+                    
+                     <div id="ctp1">
+         
+                        <div class="new_prod_bg" id ="ct1">
+                        @*<a href="details.html"><img src="~/images/thumb1.gif" alt="" title="" class="thumb" border="0" /></a>*@
+                        <img src="~/images/thumb1.jpg" alt="" title="" class="thumb" border="0" />
+                        </div>   
+                      </div> 
+                       <input class="category-btn" type="button" value="@s" />       
+                    </div>
+             }
+          </div>
+          <div class="clear"></div>
+     
+             <!-- yahaan div lgaao to show an elaborated category :'( -->
+             <div class="feat_prod_box_details">
+             <div id ="h1">
+               <form name="detals"  method="post" action="/Ad/ViewAd">   
+                    <table id="tbl1">
+                        
+                    </table>
+                </form>
+             </div>
+             </div>
+
+        <div class="clear"></div>
+        </div><!--end of left content-->

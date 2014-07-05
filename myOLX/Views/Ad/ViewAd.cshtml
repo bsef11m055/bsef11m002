@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+@model myOLX.Models.Ad
+       	<div class="left_content">
+        	
+            <div class="title"><span class="title_icon"><img src="~/images/bullet1.gif" alt="" title="" /></span>Ad Details</div>
+        
+        	<div class="feat_prod_box_details">
+            
+            	<div class="prod_img"><a href="#"><img src="@ViewBag.x.image" alt="" title="" border="0" /></a>
+                <br /><br />
+                @*<a href="images/big_pic.jpg" rel="lightbox"><img src="~/images/zoom.gif" alt="" title="" border="0" /></a>*@
+                </div>
+                
+                <div class="prod_det_box">
+                	<div class="box_top"></div>
+                    <div class="box_center">
+                    <div class="prod_title">Details</div>
+                   <div class="form_row">
+                        <label class="contact"><strong>Title: </strong><br />@ViewBag.x.title</label>
+                    </div>
+                    <div class="form_row">
+                        <label class="contact"><strong>Category: </strong><br />@ViewBag.x.catName</label>
+                    </div>
+                        <div class="form_row">
+                        <label class="contact"><strong>Price: </strong><br />@ViewBag.x.price</label></div>
+                            <div class="form_row">
+                        <label class="contact"><strong>Owner Name: </strong><br />@ViewBag.x.name</label></div>
+                                <div class="form_row">
+                       <label class="contact"><strong>Address:</strong><br /> @ViewBag.x.add</label></div>
+                                    <div class="form_row">
+                       <label class="contact"><strong>Phone:</strong> <br />@ViewBag.x.phone</label>
+                    </div>  
+                    <div class="clear"></div>
+                    </div>
+                    
+                    <div class="box_bottom"></div>
+                </div>    
+            <div class="clear"></div>
+            </div>	
+            
+
+            
+        <div class="clear"></div>
+        </div><!--end of left content-->
+
+<script type="text/javascript">
+
+var tabber1 = new Yetii({
+id: 'demo'
+});
+
+</script>

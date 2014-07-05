@@ -1,0 +1,90 @@
+﻿@model myOLX.Models.Ad
+@{
+Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<div class="left_content">
+            <div class="title"><span class="title_icon"><img src="~/images/bullet1.gif" alt="" title="" /></span>Search</div>
+        
+        	<div class="feat_prod_box_details">
+            <p class="details">
+             You may search Product by different attributes here
+            </p>
+            
+              	<div class="contact_form">
+                <div class="form_subtitle">Search by Title</div>
+
+                @*@using (Html.BeginForm("search", "Ad", FormMethod.Get))*@
+                @*{*@
+                     <div class="form_row">
+                    @Html.LabelFor(m => m.title,"Title:",new {id="t1", Name="title1", @class = "contact"})
+                    @Html.TextBoxFor(m => m.title, new {id="title", Name="title", @class = "contact_input"} ) 
+                
+                        
+                    </div>  
+					<div class="form_row">
+                    <label class="contact"><strong>Price Range</strong></label>
+                    <select id="price" class="contact_input" name="price">
+                            <option value="0">- Select- </option>
+                            <option value="100"><100</option>
+                            <option value="1000"><1000 </option>
+                            <option value="5000"><5000</option>
+                            <option value="10000"><10000</option>
+                            <option value="100000">1K+</option>
+                        </select>
+                    </div>
+                    
+                    
+                    <div class="form_row">
+                    <input id="searchbtn" type="button" class="register" value="Search" />
+                    </div>   
+					
+                    
+                @*}*@
+<div class="clear"></div>
+                 
+                
+               
+
+                </div>
+               
+               <div class="feat_prod_box_details">
+             <div id ="h1">
+               <form name="detals"  method="post" action="/Ad/ViewAd">   
+                    <table id="tbl1">
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                             <th>Details</th>
+                        </tr>
+                    </table>
+                </form>
+             </div>
+             </div>
+                </div> 
+            <script>
+                     $(document).ready(function () {
+                         $('#h1').hide();
+                     $('#searchbtn').click(function () {
+                         $('#h1').show();
+                         var value = $("#title").val();
+                         var value2 = $("#price").val();
+                         $("#tbl1 tr").remove();
+                         
+                         $.getJSON('/Ad/search?title=' + value + '&price=' +value2,
+                            function (data)
+                            {
+                                $.each(data, function (i, item) {
+                                    $("#tbl1").append('<tr><td><img src="' + item.image + '"></td><td>' + item.title + '</td><td>' + item.price + '</td><td><a href = "/Ad/ViewAd?info=' + item.title + '">Details</td></tr>');
+                                   
+                                });
+                             });
+
+                        });
+                     });
+
+                      </script>
+        <div class="clear"></div>
+        </div><!--end of left content-->
